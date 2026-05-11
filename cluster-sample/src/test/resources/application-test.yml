@@ -1,0 +1,12 @@
+cluster:
+  shards:
+    shard-1:
+      jdbc-url: jdbc:postgresql://localhost:5432/fast-saas-spring-boot-test
+      username: fast-saas-spring-boot-test
+      password: fast-saas-spring-boot-test
+      max-pool-size: 5
+      min-idle: 1
+    shard-2:
+      jdbc-url: ""
+      username: fast-saas-spring-boot-test
+      password: fast-saas-spring-boot-test

@@ -1,0 +1,70 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Dispatch Service",
+      "request": "launch",
+      "mainClass": "org.gsginzburg.dispatch.DispatchApplication",
+      "projectName": "dispatch-service",
+      "env": {
+        "DISPATCH_DB_URL": "jdbc:postgresql://localhost:5432/dispatch",
+        "DISPATCH_DB_USER": "dispatch",
+        "DISPATCH_DB_PASS": "dispatch",
+        "JWT_SECRET": "change-this-in-production-min-256-bits-secret-key-here"
+      }
+    },
+    {
+      "type": "java",
+      "name": "Cluster Backend",
+      "request": "launch",
+      "mainClass": "org.gsginzburg.cluster.sample.SampleClusterApplication",
+      "projectName": "cluster-sample",
+      "env": {
+        "CLUSTER_ID": "cluster-1",
+        "CLUSTER_NAME": "Sample Cluster 1",
+        "DISPATCH_URL": "http://localhost:8080",
+        "SHARD1_DB_URL": "jdbc:postgresql://localhost:5432/cluster",
+        "SHARD1_DB_USER": "cluster",
+        "SHARD1_DB_PASS": "cluster",
+        "JWT_SECRET": "change-this-in-production-min-256-bits-secret-key-here"
+      }
+    },
+    {
+      "type": "chrome",
+      "name": "UI: Dispatch (4200)",
+      "request": "launch",
+      "url": "http://localhost:4200",
+      "webRoot": "${workspaceFolder}/ui-dispatch/src",
+      "preLaunchTask": "npm: start - ui-dispatch"
+    },
+    {
+      "type": "chrome",
+      "name": "UI: Cluster Sample (4201)",
+      "request": "launch",
+      "url": "http://localhost:4201",
+      "webRoot": "${workspaceFolder}/ui-cluster-sample/src",
+      "preLaunchTask": "npm: start - ui-cluster-sample"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "All Services",
+      "configurations": [
+        "Dispatch Service",
+        "Cluster Backend",
+        "UI: Dispatch (4200)",
+        "UI: Cluster Sample (4201)"
+      ],
+      "stopAll": true
+    },
+    {
+      "name": "Backends Only",
+      "configurations": [
+        "Dispatch Service",
+        "Cluster Backend"
+      ],
+      "stopAll": true
+    }
+  ]
+}

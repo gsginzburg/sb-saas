@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/fast-saas-spring-boot-test
+    username: fast-saas-spring-boot-test
+    password: fast-saas-spring-boot-test
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 5
+      minimum-idle: 1
+      schema: ${dispatch.schema}
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        default_schema: ${dispatch.schema}
+  liquibase:
+    enabled: false
+
+dispatch:
+  jwt:
+    secret: test-secret-change-in-production-must-be-256-bits-long-key
+    issuer: dispatch
+    backoffice-token-expiry-seconds: 28800
+    exchange-token-expiry-seconds: 300
+  cors:
+    allowed-origins: http://localhost:4200
+  auth:
+    provider: native

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.29.xsd">
+
+    <!-- Seed initial backoffice admin user. Password: Admin@1234 (BCrypt) -->
+    <changeSet id="V002-1" author="dispatch" context="!test">
+        <insert tableName="app_user" schemaName="dispatch">
+            <column name="id" value="00000000-0000-0000-0000-000000000001"/>
+            <column name="email" value="admin@dispatch.local"/>
+            <column name="password_hash" value="$2a$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewdBPj4J8u4Qqe9i"/>
+            <column name="first_name" value="Admin"/>
+            <column name="last_name" value="User"/>
+            <column name="user_type" value="BACKOFFICE"/>
+            <column name="status" value="ACTIVE"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

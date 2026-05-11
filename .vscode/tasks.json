@@ -1,0 +1,51 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "npm: start - ui-dispatch",
+      "type": "npm",
+      "script": "start",
+      "path": "ui-dispatch/",
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "angular",
+        "pattern": {
+          "regexp": "."
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "Building\\.\\.\\.",
+          "endsPattern": "Application bundle generation complete|Watch mode enabled|Watching for file changes"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "label": "UI: Dispatch"
+      }
+    },
+    {
+      "label": "npm: start - ui-cluster-sample",
+      "type": "npm",
+      "script": "start",
+      "path": "ui-cluster-sample/",
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "angular",
+        "pattern": {
+          "regexp": "."
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "Building\\.\\.\\.",
+          "endsPattern": "Application bundle generation complete|Watch mode enabled|Watching for file changes"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "label": "UI: Cluster Sample"
+      }
+    }
+  ]
+}

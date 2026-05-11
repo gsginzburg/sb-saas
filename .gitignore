@@ -1,0 +1,10 @@
+*.class
+*/default-compile/*
+*/createdFiles.lst
+*createdFiles.lst
+*inputFiles.lst
+*/target/*
+*.angular
+*dist/*
+*/dist/*
+*/node_modules/*

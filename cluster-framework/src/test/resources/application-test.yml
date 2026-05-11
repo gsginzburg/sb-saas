@@ -1,0 +1,23 @@
+cluster:
+  id: test-cluster
+  name: Test Cluster
+  dispatch-url: http://localhost:8080
+  jwt:
+    secret: test-secret-change-in-production-must-be-256-bits-long-key
+    issuer: cluster-test
+    session-token-expiry-seconds: 28800
+  shards:
+    shard-1:
+      jdbc-url: jdbc:postgresql://localhost:5432/fast-saas-spring-boot-test
+      username: fast-saas-spring-boot-test
+      password: fast-saas-spring-boot-test
+      max-pool-size: 5
+      min-idle: 1
+
+spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+      - org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration
